@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+    <Button
+        android:id="@+id/addNewButton"
+        android:layout_width="120dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="270dp"
+        android:text="Add new Animal"
+        android:onClick="addAnimal"
+        android:backgroundTint="@color/green"
+        />
+
+
+    <Button
+        android:id="@+id/sortAlphabetically"
+        android:layout_width="120dp"
+        android:layout_height="65dp"
+        android:onClick="sortAlphabetically"
+        android:layout_marginStart="10dp"
+        android:text="Sort A-Z"
+        />
+
+    <Button
+        android:id="@+id/sortReversedAlphabetically"
+        android:layout_width="120dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="140dp"
+        android:onClick="sortAlphabeticallyReversed"
+        android:text="Sort Z-A"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/userRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        tools:context=".DatabaseActivity">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>
