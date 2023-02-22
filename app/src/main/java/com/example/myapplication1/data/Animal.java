@@ -21,6 +21,11 @@ public class Animal {
     public Animal() {
     }
 
+    public Animal(String name, byte[] image) {
+        this.name = name;
+        this.image = image;
+    }
+
     public int getId() {
 
         return id;
