@@ -36,22 +36,23 @@ public class DatabaseActivity extends AppCompatActivity {
     }
 
     public void sortAlphabetically(View view){
-        animalDAO = AnimalDB.getDBInstance(this).animalDAO();
-        List<Animal> animalList = animalDAO.getAllAnimals();
-
-        SorterHelper sorterHelper = new SorterHelper(animalList);
-        sorterHelper.sortAlphabetically();
-        AnimalRecycler animalRecycler = new AnimalRecycler(sorterHelper.getSortedAnimalList(), this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(animalRecycler);
+        sortAnimals(true);
     }
 
     public void sortAlphabeticallyReversed(View view) {
+        sortAnimals(false);
+    }
+
+    private void sortAnimals(boolean reverseOrder){
         animalDAO = AnimalDB.getDBInstance(this).animalDAO();
         List<Animal> animalList = animalDAO.getAllAnimals();
 
         SorterHelper sorterHelper = new SorterHelper(animalList);
-        sorterHelper.sortAlphabeticallyReversed();
+        if (reverseOrder) {
+            sorterHelper.sortAlphabeticallyReversed();
+        } else {
+            sorterHelper.sortAlphabetically();
+        }
         AnimalRecycler animalRecycler = new AnimalRecycler(sorterHelper.getSortedAnimalList(), this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(animalRecycler);
