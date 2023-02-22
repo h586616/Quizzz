@@ -1,14 +1,18 @@
 package com.example.myapplication1.activities;
 
+import static java.security.AccessController.getContext;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import java.util.List;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -39,9 +43,9 @@ public class Mainactivity extends AppCompatActivity {
     TextView scoreView;
     Button onNext;
 
-    private int modeDuration; // duration of the current quiz mode in seconds
+   // private int modeDuration; // duration of the current quiz mode in seconds
 
-    private CountDownTimer timer; // timer for hard mode
+    //private CountDownTimer timer; // timer for hard mode
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +82,9 @@ public class Mainactivity extends AppCompatActivity {
         Button answer3 = findViewById(R.id.answer_3);
 
         // Sett BC
-        answer1.setBackgroundColor(getResources().getColor(R.color.white));
-        answer2.setBackgroundColor(getResources().getColor(R.color.white));
-        answer3.setBackgroundColor(getResources().getColor(R.color.white));
+        answer1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        answer2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        answer3.setBackgroundColor(Color.parseColor("#FFFFFF"));
 
         correctAnimal = randomizer.generateNewAnimal();
         List<Animal> answerList = randomizer.makeAnswerOptions();
@@ -174,15 +178,16 @@ public class Mainactivity extends AppCompatActivity {
     }
 
     private void resetAnswerButtons(Button answer1, Button answer2, Button answer3) {
-        answer1.setBackgroundColor(getResources().getColor(R.color.white));
-        answer2.setBackgroundColor(getResources().getColor(R.color.white));
-        answer3.setBackgroundColor(getResources().getColor(R.color.white));
+        answer1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        answer2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        answer3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        //Not pleased with getting the color like this but currently only thing that works
     }
-
+    //Helper method
     private void setImage(ImageView imageView, Animal animal) {
         imageView.setImageBitmap(Converter.convertByteArrayToImage(animal.getImage()));
     }
-
+    //Helper method
     private void setAnswerOptionText(Button button, Animal animal) {
         button.setText(animal.getName());
     }
