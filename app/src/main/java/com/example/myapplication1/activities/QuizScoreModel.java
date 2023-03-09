@@ -19,4 +19,4 @@ public class QuizScoreModel extends ViewModel {
     }
 }
 
-
+//subclass here i guess
